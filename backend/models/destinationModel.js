@@ -11,12 +11,8 @@ const destinationSchema = mongoose.Schema(
             type: String,
             required: [true, 'Please add a destination']
         },
-        from: {
-            type: Date,
-            required: true
-        },
-        to: {
-            type: Date,
+        url: {
+            type: String,
             required: true
         }
     },

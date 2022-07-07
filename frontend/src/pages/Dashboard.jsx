@@ -1,21 +1,21 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { getGoals, reset } from '../features/goals/goalSlice'
+import { getDestinations, reset } from '../features/destinations/destinationSlice'
 
 // components
 import Header from '../components/Header'
-import GoalForm from '../components/GoalForm'
-import GoalItem from '../components/GoalItem'
+import DestinationItem from '../components/DestinationItem'
 import Spinner from '../components/Spinner'
+import Footer from '../components/Footer'
 
 function Dashboard() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.auth)
-  const { goals, isLoading, isError, message } = useSelector(
-    (state) => state.goals
+  const { destinations, isLoading, isError, message } = useSelector(
+    (state) => state.destinations
   )
 
   useEffect(() => {
@@ -27,7 +27,7 @@ function Dashboard() {
       navigate('/login')
     }
 
-    // dispatch(getGoals())
+    dispatch(getDestinations())
 
     return () => {
       dispatch(reset())
@@ -41,24 +41,26 @@ function Dashboard() {
   return (
     <div className='dashboard-container'>
     <Header />
-      <section className='heading'>
+    <div>
+      <section className='dashboard-heading'>
         <h1>Welcome {user && user.name}</h1>
-        <p>Goals Dashboard</p>
+        { destinations.length > 0 && <p>Your ideal destinations</p> }
       </section>
 
-      <GoalForm />
-
-      <section className='content'>
-        {goals.length > 0 ? (
-          <div className='goals'>
-            {goals.map((goal) => (
-              <GoalItem key={goal._id} goal={goal} />
+      <section className='destination-container'>
+        {destinations.length > 0 ? (
+          <div className='destinations'>
+            {destinations.map((destination) => (
+              <DestinationItem key={destination._id} destination={destination}/>
             ))}
           </div>
         ) : (
-          <h3>You have not set any goals</h3>
+          <h3>You have not set any destinations</h3>
         )}
       </section>
+      </div>
+
+      <Footer />
     </div>
   )
 }

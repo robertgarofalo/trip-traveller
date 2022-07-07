@@ -26,8 +26,7 @@ const setDestination = asyncHandler(async(req, res) => {
 
     const destination = await Destination.create({
         destination: req.body.destination,
-        from: req.body.from,
-        to: req.body.to,
+        url: req.body.url,
         user: req.user.id
     })
 
