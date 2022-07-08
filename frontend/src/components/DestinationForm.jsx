@@ -2,10 +2,9 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { createDestination } from '../features/destinations/destinationSlice'
 import { useNavigate } from 'react-router-dom'
-
-import { apiKey } from '../config'
-
 import axios from 'axios'
+
+const apiKey = 'Sy235R3VWcEUyn37Q4Gd6oC31RN8Moz66sitZ6_racg'
 
 function DestinationForm() {
     const navigate = useNavigate()
