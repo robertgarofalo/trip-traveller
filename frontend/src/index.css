@@ -327,16 +327,25 @@ h3 {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1025px) {
+  .destinations {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .form {
+    width: 60%;
+  }
+}
+
+@media (max-width: 650px) {
+  .destinations {
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+  }
+
   .form {
     width: 90%;
-  }
-
-  .heading h1 {
-    font-size: 2rem;
-  }
-
-  .heading p {
-    font-size: 1.5rem;
   }
 }

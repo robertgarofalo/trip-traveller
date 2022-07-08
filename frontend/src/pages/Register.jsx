@@ -108,7 +108,7 @@ function Register() {
             <button type='submit' className='btn btn-login btn-block'>
               Register
             </button>
-              <p className='alternative-text'>Already have an account? <span onClick={() => navigate('/login')}>Login here</span></p>
+              <p className='alternative-text'>Already have an account? <br /><span onClick={() => navigate('/login')}>Login here</span></p>
           </div>
         </form>
       </section>
