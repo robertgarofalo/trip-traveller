@@ -21,7 +21,6 @@ function DestinationForm() {
 
     axios.get(`https://api.unsplash.com/search/photos?query=${destination}&orientation=landscape&page=1&client_id=${apiKey}`)
     .then((response) => {
-      console.log(response.data.results[0])
       dispatch(createDestination({ 
         destination: destination.charAt(0).toUpperCase() + destination.slice(1).toLowerCase(),
         url: response.data.results[0].urls.full
