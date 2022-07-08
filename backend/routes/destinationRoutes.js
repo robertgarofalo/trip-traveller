@@ -9,7 +9,7 @@ deleteDestination
 
 const { protect } = require('../middleware/authMiddleware')
 
-router.route('/').get(protect, getDestinations).post(protect, setDestination)
+router.route('/').get(getDestinations).post(protect, setDestination)
 router.route('/:id').delete(protect, deleteDestination).put(protect, updateDestination)
 
 module.exports = router
